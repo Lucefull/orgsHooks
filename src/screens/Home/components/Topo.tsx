@@ -49,9 +49,11 @@ const styles = StyleSheet.create({
         fontSize: 26,
         lineHeight: 42,
         fontWeight: 'bold',
+        color:'#464646'
     },
     legend: {
         fontSize: 16,
         lineHeight: 26,
+        color:'#a3a3a3'
     },
 });
