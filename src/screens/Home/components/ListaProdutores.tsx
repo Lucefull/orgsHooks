@@ -1,8 +1,8 @@
-import React, { FC, JSXElementConstructor, useEffect, useState } from "react"
+import React from "react"
 import { FlatList, StyleSheet, Text } from "react-native"
+import { useListaProdutores } from "../../../hooks/useListaProdutores";
+import { useTitulo } from "../../../hooks/useTitulo";
 
-import { carregaProdutores } from "../../../services/carregaDados"
-import { IProdutor } from "../../../types/IProdutor";
 import Produtor from "./Produtor";
 
 type Props ={
@@ -10,14 +10,9 @@ type Props ={
 }
 
 export const ListaProdutores= ({Topo}: Props) => {
-    const [titulo, setTitulo] = useState('');
-    const [lista, setLista] = useState<IProdutor[]>([]);
 
-    useEffect(() => {
-        const retorno = carregaProdutores();
-        setTitulo(retorno.titutlo);
-        setLista(retorno.lista);
-    }, [])
+    const titulo = useTitulo();
+    const lista = useListaProdutores();
 
     const TopoLista = () => {
         return <>
